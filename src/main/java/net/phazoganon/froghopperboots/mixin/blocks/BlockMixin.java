@@ -20,17 +20,20 @@ public abstract class BlockMixin {
         if (entity instanceof Player player) {
             if (player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.FROG_HOPPER_BOOTS)) {
                 if (player.isSuppressingBounce()) {
-                    entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.0, 1.0));
+                    player.setDeltaMovement(player.getDeltaMovement().multiply(1.0, 0.0, 1.0));
                 }
                 else {
-                    Vec3 vec3 = entity.getDeltaMovement();
-                    if (vec3.y < 0.0D) {
-                        entity.setDeltaMovement(vec3.x, -vec3.y, vec3.y);
+                    Vec3 vec3 = player.getDeltaMovement();
+                    if (vec3.y < -0.2) {
+                        System.out.println("X Speed: " + vec3.x);
+                        System.out.println("Y Speed: " + vec3.y);
+                        System.out.println("Z Speed: " + vec3.z);
+                        player.setDeltaMovement(vec3.x, -vec3.y, vec3.z);
                     }
                 }
             }
             else {
-                entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.0, 1.0));
+                player.setDeltaMovement(player.getDeltaMovement().multiply(1.0, 0.0, 1.0));
             }
         }
         else {

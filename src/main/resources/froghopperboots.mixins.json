@@ -6,8 +6,5 @@
   "refmap": "mixins.froghopperboots.refmap.json",
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-    "blocks.BlockMixin"
-  ]
+  }
 }
