@@ -17,7 +17,6 @@ public class FrogHopperBoots {
     public FrogHopperBoots(IEventBus modEventBus) {
         modEventBus.addListener(this::addCreative);
         ModItems.register(modEventBus);
-        ModUtils.init();
     }
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         ResourceKey<CreativeModeTab> getTabKey = event.getTabKey();
